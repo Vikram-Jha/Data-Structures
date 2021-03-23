@@ -177,4 +177,20 @@ public class QueueTwoStack {
 }
 
 
+//Queue Reverser
 
+ public static void Reverser(Queue<Integer> queue,int k){
+        Stack<Integer> stack = new Stack<>();
+        Queue<Integer> queue2 = new ArrayDeque<>();
+        if(k<0 || k> queue.size())
+            throw new IllegalStateException("Please enter a valid Number");
+
+        for (int i = 0; i < k; i++)
+            stack.push(queue.remove());
+
+        while (!stack.empty())
+            queue.add(stack.pop());
+
+        for (int i = 0; i < queue.size() - k; i++)
+            queue.add(queue.remove());
+    }
